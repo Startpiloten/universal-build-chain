@@ -13,14 +13,16 @@ const WebpackBar = require('webpackbar');
 const CopyPlugin = require('copy-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const yaml = require('js-yaml');
+const fs = require('fs');
 
 // variables:
 const executePath = process.cwd();
+let entryFile = 'ubc.js';
 
 // helpers:
 const logging = function () {
     console.log(process.cwd());
-    console.log(path.resolve(__dirname, '.stylelintrc.json'));
 };
 
 // welcome text
@@ -45,10 +47,11 @@ const runCmd = function (command) {
     });
 };
 
+// run webpack compiler
 const compileWebpack = webpack({
     mode: 'development',
     devtool: "inline-source-map",
-    entry: './ubc.js',
+    entry: path.resolve(process.cwd(), entryFile),
     output: {
         path: executePath + '/dist',
     },
@@ -170,11 +173,28 @@ const compileWebpack = webpack({
     ],
 });
 
+// read config
+const readConfigFile = function () {
+    var ymalFile = false;
+    try {
+        ymalFile = fs.readFileSync(path.resolve(process.cwd(), 'ubc.yaml'))
+    } catch (err) {
+        console.log('Sorry - no ubc.yaml config founf in your project');
+    }
+    if (ymalFile) {
+        var buildConfig = yaml.safeLoad(ymalFile);
+        console.log();
+        entryFile = buildConfig.entry[0]
+        compileWebpack.run();
+    }
+};
+
+
 // collection of tasks
 const runAll = function () {
     setTimeout(function () {
         logging();
-        compileWebpack.run();
+        readConfigFile();
     }, 200);
 };
 
