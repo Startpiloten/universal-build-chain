@@ -1,6 +1,6 @@
 {
   "name": "universal-build-chain",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "One tool to build them all",
   "main": "build.js",
   "author": "Boris Schauer <schauer@analog.de>",
