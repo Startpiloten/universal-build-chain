@@ -1,6 +1,6 @@
 {
   "name": "universal-build-chain",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "One tool to build them all",
   "main": "build.js",
   "author": "Boris Schauer <schauer@analog.de>",
@@ -8,7 +8,7 @@
   "bin": {
     "ubc": "bin/universal-build-chain.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
     "autoprefixer": "^9.7.5",
