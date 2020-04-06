@@ -1,10 +1,13 @@
 {
   "name": "universal-build-chain",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "One tool to build them all",
   "main": "build.js",
   "author": "Boris Schauer <schauer@analog.de>",
   "license": "ISC",
+  "engines": {
+    "node": ">=12"
+  },
   "bin": {
     "ubc": "bin/universal-build-chain.js"
   },
