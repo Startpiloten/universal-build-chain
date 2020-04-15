@@ -1,6 +1,6 @@
 {
   "name": "universal-build-chain",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "One tool to build them all",
   "main": "build.js",
   "author": "Boris Schauer <schauer@analog.de>",
@@ -46,9 +46,7 @@
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-merge": "^4.2.2",
-    "webpackbar": "^4.0.0"
-  },
-  "devDependencies": {
+    "webpackbar": "^4.0.0",
     "sass": "^1.26.3"
   }
 }
